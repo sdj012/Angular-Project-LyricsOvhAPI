@@ -4,12 +4,14 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { HomeComponent } from './home/home.component'; //Mechanism for communicating ewith a remote server over HTTP
+import { HomeComponent } from './home/home.component';
+import { ContentsComponent } from './contents/contents.component'; //Mechanism for communicating ewith a remote server over HTTP
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    ContentsComponent
   ],
   imports: [
     BrowserModule,

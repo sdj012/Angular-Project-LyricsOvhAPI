@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { ContentService } from './content.service';
+import { ContentsService } from './contents.service';
 import{ catchError,map,tap} from 'rxjs/operators';
 
 import { Lyric } from './lyrics';
@@ -19,13 +19,13 @@ export class LyricsService {
 
   constructor(
     private http: HttpClient,
-    private contentService: ContentService,
+    private contentsService: ContentsService,
     
    ) { }
 
 
   private log(contents: string) {
-  this.contentService.add(`Lyricservice: ${contents}`);
+  this.contentsService.add(`Lyricservice: ${contents}`);
   }
 
 
