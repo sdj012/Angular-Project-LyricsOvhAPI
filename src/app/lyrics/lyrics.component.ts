@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Lyric } from '../lyrics';
+import { LyricsService } from '../lyrics.service';
 
 @Component({
   selector: 'app-lyrics',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LyricsComponent implements OnInit {
 
-  constructor() { }
+  // lyrics: Lyric[];
+  lyrics: {}; //Change type from Lyric[] -> Object
+
+  constructor( private LyricsService: LyricsService) { }
 
   ngOnInit() {
+
+  this.getLyrics();
+
   }
+
+  getLyrics():void{
+    this.LyricsService.getLyrics()
+    .subscribe(lyrics => this.lyrics = lyrics); // *check what this does
+  }
+
 
 }

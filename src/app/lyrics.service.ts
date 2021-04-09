@@ -14,8 +14,10 @@ import { Lyric } from './lyrics';
 
 export class LyricsService {
 
-  private lyricsUrl='https://api.lyrics.ovh/v1/Justin%Bieber/Peaches'; //URL to web api https://api.lyrics.ovh/v1/artist/title
+  // private lyricsUrl='https://api.lyrics.ovh/v1/Justin%Bieber/Peaches'; //URL to web api https://api.lyrics.ovh/v1/artist/title
+  private lyricsUrl='https://private-anon-2329dfde36-lyricsovh.apiary-proxy.com/v1/Justin%25Bieber/Peaches'; //URL to web api https://api.lyrics.ovh/v1/artist/title
 
+  private lyrics=[];
 
   constructor(
     private http: HttpClient,
@@ -25,7 +27,9 @@ export class LyricsService {
 
 
   private log(contents: string) {
-  this.contentsService.add(`Lyricservice: ${contents}`);
+
+  this.contentsService.add(`Lyricservice: ${contents}`); // rmv contents 
+
   }
 
 
@@ -45,12 +49,31 @@ export class LyricsService {
     }
   }
   
-  getLyrics(): Observable<Lyric[]> {
-    return this.http.get<Lyric[]>(this.lyricsUrl)
-    .pipe(
-      tap(_ => this.log('fetched lyrics')),
-      catchError(this.HandleError<Lyric[]>('getLyrics',[]))
-    )
+  // getLyrics(): Observable<Lyric[]> {
+  //   // return this.http.get<Lyric[]>(this.lyricsUrl)
+
+  //   return this.http.get(this.lyricsUrl)
+  //   .pipe(
+  //     tap(_ => this.log('fetched lyrics')),
+  //     catchError(this.HandleError<Lyric[]>('getLyrics',[]))
+  //   )
+  // }
+
+  getLyrics() {
+    // return this.http.get<Lyric[]>(this.lyricsUrl)
+
+    return this.http.get(this.lyricsUrl)
+    .pipe(map(data => {
+      data;
+      console.log("I CAN SEE DATA HERE: ", data);
+      return data;
+    }));
+
+    // .pipe(
+    //   tap(_ => this.log('fetched lyrics'))
+    //   // catchError(this.HandleError<Lyric[]>('getLyrics',[]))
+    // )
+
   } 
 
   }

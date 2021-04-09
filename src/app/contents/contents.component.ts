@@ -10,7 +10,6 @@ export class ContentsComponent implements OnInit {
 
   constructor(public contentsService: ContentsService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

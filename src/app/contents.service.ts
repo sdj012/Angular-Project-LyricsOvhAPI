@@ -6,7 +6,8 @@ import { Injectable } from '@angular/core';
 
 export class ContentsService {
 
-  contentsBody: string[] = [];
+  // contentsBody: string[] = [];
+  contentsBody: Object[] = []; // Temporarily Change Type 
 
   add(contents: string) {
     this.contentsBody.push(contents);
