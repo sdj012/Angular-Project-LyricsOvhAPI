@@ -1,1 +1,9 @@
 <p>contents works!</p>
+
+<div *ngIf="contentsService.contentsBody.length">
+
+  <h2>Contents</h2>
+
+  <div *ngFor='let contents of contentsService.contentsBody'>{{contents}}</div>
+
+</div>

@@ -14,7 +14,7 @@ import { Lyric } from './lyrics';
 
 export class LyricsService {
 
-  private lyricsUrl= 'https://api.lyrics.ovh/v1/Justin%Bieber/Peaches'; //URL to web api https://api.lyrics.ovh/v1/artist/title
+  private lyricsUrl='https://api.lyrics.ovh/v1/Justin%Bieber/Peaches'; //URL to web api https://api.lyrics.ovh/v1/artist/title
 
 
   constructor(

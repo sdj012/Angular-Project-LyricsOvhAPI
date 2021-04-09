@@ -8,7 +8,7 @@ import { ContentsService } from '../contents.service';
 })
 export class ContentsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public contentsService: ContentsService) { }
 
   ngOnInit() {
   }

@@ -5,13 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
-import { ContentsComponent } from './contents/contents.component'; //Mechanism for communicating ewith a remote server over HTTP
+import { ContentsComponent } from './contents/contents.component';
+import { LyricsComponent } from './lyrics/lyrics.component'; //Mechanism for communicating ewith a remote server over HTTP
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ContentsComponent
+    ContentsComponent,
+    LyricsComponent
   ],
   imports: [
     BrowserModule,
