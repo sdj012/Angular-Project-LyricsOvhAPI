@@ -16,8 +16,10 @@ export class LyricsService {
 
   // private lyricsUrl='https://api.lyrics.ovh/v1/Justin%Bieber/Peaches'; //URL to web api https://api.lyrics.ovh/v1/artist/title
   private lyricsUrl='https://private-anon-2329dfde36-lyricsovh.apiary-proxy.com/v1/Justin%25Bieber/Peaches'; //URL to web api https://api.lyrics.ovh/v1/artist/title
+  private localLyrics=[];
+  public translatedLyrics=[];
 
-  private lyrics=[];
+  // private lyrics=[];
 
   constructor(
     private http: HttpClient,
@@ -26,9 +28,11 @@ export class LyricsService {
    ) { }
 
 
-  private log(contents: string) {
+  private log(contents: {}) {
 
-  this.contentsService.add(`Lyricservice: ${contents}`); // rmv contents 
+  // this.contentsService.add(`Lyricservice: ${contents}`); // rmv contents 
+
+  this.contentsService.add(`${contents}`); // 
 
   }
 
@@ -59,13 +63,24 @@ export class LyricsService {
   //   )
   // }
 
+  setLocalLyrics(lyrics:[]){
+
+    this.localLyrics.push(lyrics);
+
+  }
+
   getLyrics() {
     // return this.http.get<Lyric[]>(this.lyricsUrl)
 
     return this.http.get(this.lyricsUrl)
     .pipe(map(data => {
       data;
-      console.log("I CAN SEE DATA HERE: ", data);
+      console.log("DATA: ", data);
+      console.log("Data:", data["lyrics"] )
+      this.log(data["lyrics"]);
+      this.setLocalLyrics(data["lyrics"]);
+      this.translateLyrics();
+
       return data;
     }));
 
@@ -75,6 +90,33 @@ export class LyricsService {
     // )
 
   } 
+
+//   const res = await fetch("https://libretranslate.com/translate", {
+// 	method: "POST",
+// 	body: JSON.stringify({
+// 		q: "paranoid",
+// 		source: "en",
+// 		target: "es"
+// 	}),
+// 	headers: { "Content-Type": "application/json" }
+// });
+
+// console.log(await res.json());
+
+translateLyrics(){
+
+  const headers = {  "Content-Type": "application/json" };
+  const body = JSON.stringify({ q: this.localLyrics[0], source:"en", target:"fr"});
+
+  this.http.post<any>('https://libretranslate.com/translate', body, { headers })
+      .subscribe(data => {
+        this.translatedLyrics.push(data["translatedText"]);
+        console.log("translated text: ", data["translatedText"])
+        console.log("this.translatedLyrics:", this.translatedLyrics[0])
+      });
+
+
+}
 
   }
 

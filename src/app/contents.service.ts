@@ -7,10 +7,12 @@ import { Injectable } from '@angular/core';
 export class ContentsService {
 
   // contentsBody: string[] = [];
-  contentsBody: Object[] = []; // Temporarily Change Type 
+  contentsBody: Object[]=[]; // Temporarily Change Type 
 
-  add(contents: string) {
-    this.contentsBody.push(contents);
+  translated: Object[]=[];
+
+  add(contents: {}) {
+    this.contentsBody.push(contents)
   }
 
   clear() {

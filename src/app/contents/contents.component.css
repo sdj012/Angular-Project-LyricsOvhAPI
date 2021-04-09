@@ -1,0 +1,91 @@
+html{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+@keyframes lyricsAnimation{
+
+  0%{
+    bottom:0px;
+  }
+
+  /* 90%{
+    top:-562px;
+  } */
+
+  100%{
+    top: 10px;;
+  }
+
+  /* 0%{
+    opacity: 0;
+  }
+
+  90%{
+    opacity: .2;
+  }
+
+  100%{
+    opacity: 0;
+  } */
+
+}
+
+.background{
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.lyricContents{
+  position: absolute;
+  bottom:5%;
+
+  max-height:10%;
+  width:1126px;
+
+  opacity:0.1;
+  background-image: linear-gradient(to left,white,orange,yellow);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: medium;
+
+  animation-name:lyricsAnimation;
+  animation-iteration-count: infinite;
+  animation-duration: 50s;
+
+}
+
+
+
+/* Bottom of Video */
+.content {
+  position: fixed;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color:white;
+  width: 100%;
+  padding: 20px;
+  z-index: 9;
+}
+
+/* Style the button used to pause/play the video */
+#myBtn {
+  width: 200px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+  z-index:9;
+}
+
+#myBtn:hover {
+  background: #ddd;
+  color: black;
+  z-index:9;
+}

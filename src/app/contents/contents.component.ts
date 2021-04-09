@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
 import { ContentsService } from '../contents.service';
 
 @Component({
@@ -11,5 +11,7 @@ export class ContentsComponent implements OnInit {
   constructor(public contentsService: ContentsService) { }
 
   ngOnInit() {}
+
+  /*dynamic css*/
 
 }
