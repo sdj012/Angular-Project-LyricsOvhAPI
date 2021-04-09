@@ -15,7 +15,7 @@ import { Lyric } from './lyrics';
 export class LyricsService {
 
   // private lyricsUrl='https://api.lyrics.ovh/v1/Justin%Bieber/Peaches'; //URL to web api https://api.lyrics.ovh/v1/artist/title
-  private lyricsUrl='https://private-anon-2329dfde36-lyricsovh.apiary-proxy.com/v1/Justin%25Bieber/Peaches'; //URL to web api https://api.lyrics.ovh/v1/artist/title
+  private lyricsUrl='https://private-anon-2329dfde36-lyricsovh.apiary-proxy.com/v1/Justin%25Bieber/Peaches'; //Needs Dynamic Editing URL to web api https://api.lyrics.ovh/v1/artist/title
   private localLyrics=[];
   public translatedLyrics=[];
 
@@ -32,7 +32,9 @@ export class LyricsService {
 
   // this.contentsService.add(`Lyricservice: ${contents}`); // rmv contents 
 
-  this.contentsService.add(`${contents}`); // 
+    this.contentsService.add(`${contents}`); // 
+
+    //this.contentsTranslationService.add('${}');
 
   }
 
@@ -91,19 +93,7 @@ export class LyricsService {
 
   } 
 
-//   const res = await fetch("https://libretranslate.com/translate", {
-// 	method: "POST",
-// 	body: JSON.stringify({
-// 		q: "paranoid",
-// 		source: "en",
-// 		target: "es"
-// 	}),
-// 	headers: { "Content-Type": "application/json" }
-// });
-
-// console.log(await res.json());
-
-translateLyrics(){
+  translateLyrics(){
 
   const headers = {  "Content-Type": "application/json" };
   const body = JSON.stringify({ q: this.localLyrics[0], source:"en", target:"fr"});
