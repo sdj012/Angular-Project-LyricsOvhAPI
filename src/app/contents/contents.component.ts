@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ContentsService } from '../contents.service';
 
 @Component({
   selector: 'app-contents',
