@@ -10,7 +10,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 
 export class EntryComponent implements OnInit {
 
-  // public lyricForm: FormGroup;
+  public lyricForm: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -37,12 +37,14 @@ export class EntryComponent implements OnInit {
 
 
 
-  ngOnInit() {}
+  ngOnInit() {
 
-  lyricForm = this.formBuilder.group({
+  this.lyricForm = this.formBuilder.group({
     'artist': new FormControl(''),
     'song': new FormControl('')
   });
+
+  }
 
 
 }
