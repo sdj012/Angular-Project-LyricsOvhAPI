@@ -7,9 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ContentsComponent } from './contents/contents.component';
 import { LyricsComponent } from './lyrics/lyrics.component';
 import { EntryComponent } from './entry/entry.component';
-import { SearchformComponent } from './searchform/searchform.component'; //Mechanism for communicating ewith a remote server over HTTP
+import { SearchformComponent } from './searchform/searchform.component'; //Mechanism for communicating ewith a remote server over HTTP 
 import { ReactiveFormsModule } from '@angular/forms';
-
 
 @NgModule({
   declarations: [
