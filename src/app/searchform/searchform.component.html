@@ -1,33 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
 <p>searchform works!</p>
 <!-- main app container -->
-<div class="card m-3">
-  <h5 class="card-header">Angular 9 Reactive Form Validation</h5>
-  <div class="card-body">
+<div class="form">
 
-      <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
-  
-              <div class="form-group col-5">
-                  <label>First Name</label>
-                  <input type="text" formControlName="name" class="form-control"/>
+  <div class="form-wrapper">
+
+      <form class="form-container" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+
+            <!--Artist-->
+              <div class="form-group column-artist">
+                  <label>Artist</label>
+                  <input type="text" formControlName="name" class="form-control global-form-children"/>
                   <!-- <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
                       <div *ngIf="f.firstName.errors.required">First Name is required</div>
                   </div> -->
               </div>
-              <div class="form-group col-5">
-                  <label>Last Name</label>
-                  <input type="text" formControlName="song" class="form-control"/>
+
+              <!--Song-->
+
+              <div class="form-group column-song">
+                  <label>Song</label>
+                  <input type="text" formControlName="song" class="form-control global-form-children"/>
                   <!-- <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
                       <div *ngIf="f.lastName.errors.required">Last Name is required</div>
                   </div> -->
               </div>
           
-          <div class="text-center">
-              <button class="btn btn-primary mr-1">Register</button>
-              <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
-          </div>
+              <!--Song-->
+              <div class="button-group column-button">
+                  <button class="btn btn-primary mr-1 global-form-children">Register</button>
+                  <button class="btn btn-secondary global-form-children" type="reset" (click)="onReset()">Cancel</button>
+              </div>
 
       </form>
   </div>
+
 </div>
 
 <!-- credits -->
@@ -39,3 +54,7 @@
       <a href="https://jasonwatmore.com" target="_top">JasonWatmore.com</a>
   </p>
 </div> -->
+
+</body>
+
+</html>

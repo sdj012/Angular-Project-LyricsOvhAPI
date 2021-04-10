@@ -19,7 +19,7 @@ export class SearchformComponent implements OnInit {
   ngOnInit() {
     this.searchForm=this.formBuilder.group({
       name:"",
-      song:","
+      song:""
     })
 
   }

@@ -1,0 +1,36 @@
+.form-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 30px 0px;
+  grid-template-areas:
+    ". ."
+    "left right"
+    ". bottom-right";
+
+  align-items: center;
+}
+
+.column-artist{
+  grid-area:left;
+  justify-self:center;
+
+}
+
+.column-song{
+  grid-area:right;
+  justify-self:centre;
+}
+
+.column-button{
+  grid-area:bottom-right;
+  justify-self: center;
+
+}
+
+.global-form-children{
+
+  border-radius:5px;
+  
+
+}
