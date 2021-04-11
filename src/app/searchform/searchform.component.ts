@@ -11,12 +11,15 @@ export class SearchformComponent implements OnInit {
 
   searchForm: FormGroup;
   submitted = false;
+  artist: string;
+  song: string;
 
   constructor(
     private formBuilder: FormBuilder
   ) { }
 
   ngOnInit() {
+
     this.searchForm=this.formBuilder.group({
       name:"",
       song:""
@@ -30,7 +33,10 @@ export class SearchformComponent implements OnInit {
 
     //display form values
 
-    alert('SUCCESS!! ' + JSON.stringify(this.searchForm.value))
+    alert('SUCCESS!! ' + JSON.stringify(this.searchForm.value) + this.searchForm.value["name"] +this.searchForm.value["song"]) 
+    this.artist=this.searchForm.value["name"]; //Assign to Local Variable "artist"
+    this.song=this.searchForm.value["song"]; //Assign to Local Variable "song"
+    //Pass to lyrics.html
 
   }
 
@@ -40,7 +46,5 @@ export class SearchformComponent implements OnInit {
     this.searchForm.reset();
 
   }
-
-
 
 }

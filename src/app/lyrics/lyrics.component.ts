@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Input } from '@angular/core';
 import { Lyric } from '../lyrics';
 import { LyricsService } from '../lyrics.service';
 
@@ -9,6 +10,9 @@ import { LyricsService } from '../lyrics.service';
 })
 export class LyricsComponent implements OnInit {
 
+  @Input('artist') artistName:string;
+  @Input('song') songName:string;
+
   // lyrics: Lyric[];
   lyrics: {}; //Change type from Lyric[] -> Object
 
@@ -16,7 +20,7 @@ export class LyricsComponent implements OnInit {
 
   ngOnInit() {
 
-  this.getLyrics();
+    this.getLyrics();
 
   }
 
@@ -27,3 +31,4 @@ export class LyricsComponent implements OnInit {
 
 
 }
+
