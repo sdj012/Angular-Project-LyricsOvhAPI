@@ -20,12 +20,16 @@ export class LyricsComponent implements OnInit {
 
   ngOnInit() {
 
-    this.getLyrics();
-
   }
+  
+  ngOnChanges(){
+    this.getLyrics();
+  };
 
   getLyrics():void{
-    this.LyricsService.getLyrics()
+    console.log("lyrics artistName: " + this.artistName)
+    console.log("lyrics songName: " + this.songName)
+    this.LyricsService.getLyrics(this.artistName,this.songName)
     .subscribe(lyrics => this.lyrics = lyrics); // *check what this does
   }
 

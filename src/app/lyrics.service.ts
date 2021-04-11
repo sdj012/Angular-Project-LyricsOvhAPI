@@ -15,7 +15,7 @@ import { Lyric } from './lyrics';
 export class LyricsService {
 
   // private lyricsUrl='https://api.lyrics.ovh/v1/Justin%Bieber/Peaches'; //URL to web api https://api.lyrics.ovh/v1/artist/title
-  private lyricsUrl='https://private-anon-2329dfde36-lyricsovh.apiary-proxy.com/v1/Justin%25Bieber/Peaches'; //Needs Dynamic Editing URL to web api https://api.lyrics.ovh/v1/artist/title
+  private lyricsUrl=''; // Needs Dynamic Editing URL to web api https://api.lyrics.ovh/v1/artist/title
   private localLyrics=[];
   public translatedLyrics=[];
 
@@ -71,10 +71,17 @@ export class LyricsService {
 
   }
 
-  getLyrics() {
+  getLyrics(Artist:string,Song:string) {
     // return this.http.get<Lyric[]>(this.lyricsUrl)
 
-    return this.http.get(this.lyricsUrl)
+    // this.lyricsUrl='https://private-anon-2329dfde36-lyricsovh.apiary-proxy.com/v1/',JSON.stringify({Artist}),'/',JSON.stringify({Song});
+    console.log(Artist);
+    console.log(Song);
+    this.lyricsUrl='https://api.lyrics.ovh/v1/'+Artist+'/'+Song;
+    const headers = {  "Content-Type": "application/json" };
+
+
+    return this.http.get(this.lyricsUrl,{ headers })
     .pipe(map(data => {
       data;
       console.log("DATA: ", data);
