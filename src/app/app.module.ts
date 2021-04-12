@@ -8,13 +8,15 @@ import { ContentsComponent } from './contents/contents.component';
 import { LyricsComponent } from './lyrics/lyrics.component';
 import { SearchformComponent } from './searchform/searchform.component'; //Mechanism for communicating ewith a remote server over HTTP 
 import { ReactiveFormsModule } from '@angular/forms';
+import { TranslateComponent } from './translate/translate.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContentsComponent,
     LyricsComponent,
-    SearchformComponent
+    SearchformComponent,
+    TranslateComponent
   ],
   imports: [
     BrowserModule,

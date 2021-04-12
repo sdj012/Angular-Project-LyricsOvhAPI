@@ -27,6 +27,7 @@ export class LyricsService {
     
    ) { }
 
+
   private log(contents: {}) {
 
   // this.contentsService.add(`Lyricservice: ${contents}`); // rmv contents 

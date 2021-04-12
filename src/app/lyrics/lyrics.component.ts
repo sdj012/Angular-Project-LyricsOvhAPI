@@ -19,16 +19,16 @@ export class LyricsComponent implements OnInit {
   constructor( private LyricsService: LyricsService) { }
 
   ngOnInit() {
-
-    this.artistName="";
-    this.songName="";
-    this.lyrics={};
-
+    // this.getLyrics();
+    // this.artistName="";
+    // this.songName="";
+    // this.lyrics={};
   }
-  
+
   ngOnChanges(){
     this.getLyrics();
-  };
+  }
+  
 
   getLyrics():void{
     console.log("lyrics artistName: " + this.artistName)
@@ -36,6 +36,12 @@ export class LyricsComponent implements OnInit {
     this.LyricsService.getLyrics(this.artistName,this.songName)
     .subscribe(lyrics => this.lyrics = lyrics); // *check what this does
   }
+
+  //set Lyrics
+
+  
+
+
 
 
 }
