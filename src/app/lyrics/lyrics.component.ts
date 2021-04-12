@@ -20,6 +20,10 @@ export class LyricsComponent implements OnInit {
 
   ngOnInit() {
 
+    this.artistName="";
+    this.songName="";
+    this.lyrics={};
+
   }
   
   ngOnChanges(){

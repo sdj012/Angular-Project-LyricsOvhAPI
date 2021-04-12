@@ -17,7 +17,7 @@ export class LyricsService {
   // private lyricsUrl='https://api.lyrics.ovh/v1/Justin%Bieber/Peaches'; //URL to web api https://api.lyrics.ovh/v1/artist/title
   private lyricsUrl=''; // Needs Dynamic Editing URL to web api https://api.lyrics.ovh/v1/artist/title
   private localLyrics=[];
-  public translatedLyrics=[];
+  public translatedLyrics="";
 
   // private lyrics=[];
 
@@ -27,7 +27,6 @@ export class LyricsService {
     
    ) { }
 
-
   private log(contents: {}) {
 
   // this.contentsService.add(`Lyricservice: ${contents}`); // rmv contents 
@@ -36,6 +35,10 @@ export class LyricsService {
 
     //this.contentsTranslationService.add('${}');
 
+  }
+
+  private sendTranslate(contents: string) {
+    this.contentsService.addTranslate(`${contents}`); // 
   }
 
 
@@ -89,8 +92,10 @@ export class LyricsService {
       this.log(data["lyrics"]);
       this.setLocalLyrics(data["lyrics"]);
       this.translateLyrics();
+      this.log(this.translatedLyrics[0]);
 
       return data;
+
     }));
 
     // .pipe(
@@ -107,13 +112,15 @@ export class LyricsService {
 
   this.http.post<any>('https://libretranslate.com/translate', body, { headers })
       .subscribe(data => {
-        this.translatedLyrics.push(data["translatedText"]);
-        console.log("translated text: ", data["translatedText"])
-        console.log("this.translatedLyrics:", this.translatedLyrics[0])
+        this.translatedLyrics=data["translatedText"];
+        console.log("translated text: ", data["translatedText"]);
+        console.log("this.translatedLyrics:", this.translatedLyrics);
+        this.sendTranslate(this.translatedLyrics);
       });
+    
+  
+  }
 
 
 }
-
-  }
 

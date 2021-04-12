@@ -25,6 +25,9 @@ export class SearchformComponent implements OnInit {
       song:""
     })
 
+    this.artist="";
+    this.song="";
+
   }
 
   onSubmit(){
@@ -36,6 +39,9 @@ export class SearchformComponent implements OnInit {
     alert('SUCCESS!! ' + JSON.stringify(this.searchForm.value) + this.searchForm.value["name"] +this.searchForm.value["song"]) 
     this.artist=this.searchForm.value["name"]; //Assign to Local Variable "artist"
     this.song=this.searchForm.value["song"]; //Assign to Local Variable "song"
+    this.searchForm.reset();
+
+
     //Pass to lyrics.html
 
   }
